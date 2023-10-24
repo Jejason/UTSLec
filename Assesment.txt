@@ -1,4 +1,6 @@
 Link GitHub : https://github.com/Jejason/UTSLec.git
+Link Website:http://restoran-if330-leblanc.infinityfreeapp.com/home.php
+
 1. Jobdesk
 	Owen: Mengerjakan bagian back-end dari web (halaman home, login, sign in, admin)
 	Jason: Mengerjakan bagian front-end dari web (halaman home, menu) dan hosting web
