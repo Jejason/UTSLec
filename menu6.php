@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+
 <body>
 
 
@@ -36,20 +38,20 @@
                 </ul>
                 <form action="mycart.php">
                     <button type="submit" class="kart">
-                    <span class="button_icon"><i class="fas fa-shopping-cart"></i></span>
-                </button>
+                        <span class="button_icon"><i class="fas fa-shopping-cart"></i></span>
+                    </button>
                 </form>
                 <?php
-                    session_start();
-                    if(!isset($_SESSION['iduser'])){
-                        echo "<form action='login.php'>";
-                            echo "<button type='submit' class='btn btn-outline-success'>Login</button>";
-                        echo "</form>";
-                    }else{
-                        echo "<form action='logout.php'>";
-                            echo "<button type='submit' class='btn btn-outline-danger'>Logout</button>";
-                        echo "</form>";
-                    }
+                session_start();
+                if (!isset($_SESSION['iduser'])) {
+                    echo "<form action='login.php'>";
+                    echo "<button type='submit' class='btn btn-outline-success'>Login</button>";
+                    echo "</form>";
+                } else {
+                    echo "<form action='logout.php'>";
+                    echo "<button type='submit' class='btn btn-outline-danger'>Logout</button>";
+                    echo "</form>";
+                }
                 ?>
             </div>
         </div>
@@ -57,25 +59,26 @@
     <div class="container">
         <h1 class="title mt-4 mb-1" id="title">Menu</h1>
         <div class="row filter-btn-row">
-        <div class="col-lg-12 mb-5">
-            <a href="menu.php" class="btn filter-btn">All</a>
-            <a href="menu1.php" class="btn filter-btn">Seasonal Menu</a>
-            <a href="menu2.php" class="btn filter-btn">Waffle</a>
-            <a href="menu3.php" class="btn filter-btn">Dessert</a>
-            <a href="menu4.php" class="btn filter-btn">Lunch</a>
-            <a href="menu5.php" class="btn filter-btn">Food</a>
-            <a href="menu6.php" class="btn filter-btn active">Morning</a>
-            <a href="menu7.php" class="btn filter-btn">Coffee</a>
-            <a href="menu8.php" class="btn filter-btn">Tea</a>
-            <a href="menu9.php" class="btn filter-btn">Softdrink</a>
-            <a href="menu10.php" class="btn filter-btn">Alcohol</a>
+            <div class="col-lg-12 mb-5">
+                <a href="menu.php" class="btn filter-btn">All</a>
+                <a href="menu1.php" class="btn filter-btn">Seasonal Menu</a>
+                <a href="menu2.php" class="btn filter-btn">Waffle</a>
+                <a href="menu3.php" class="btn filter-btn">Dessert</a>
+                <a href="menu4.php" class="btn filter-btn">Lunch</a>
+                <a href="menu5.php" class="btn filter-btn">Food</a>
+                <a href="menu6.php" class="btn filter-btn active">Morning</a>
+                <a href="menu7.php" class="btn filter-btn">Coffee</a>
+                <a href="menu8.php" class="btn filter-btn">Tea</a>
+                <a href="menu9.php" class="btn filter-btn">Softdrink</a>
+                <a href="menu10.php" class="btn filter-btn">Alcohol</a>
+            </div>
         </div>
-    </div>
-    
-    <?php
-        $koneksi = mysqli_connect("localhost", "root", "", "restoran", 3306);
-        function getRandomColorClass() {
-            $colorClasses = ["bg-color-1", "bg-color-2", "bg-color-3", "bg-color-4", "bg-color-5"]; 
+
+        <?php
+        $koneksi = mysqli_connect("sql109.infinityfree.com", "if0_35295262", "2J5oguklsoq4TTj", "if0_35295262_restoran");
+        function getRandomColorClass()
+        {
+            $colorClasses = ["bg-color-1", "bg-color-2", "bg-color-3", "bg-color-4", "bg-color-5"];
             return $colorClasses[array_rand($colorClasses)];
         }
         $query = "SELECT * FROM menu";
@@ -85,11 +88,12 @@
             $data[$row['kategori']][] = $row;
         }
         mysqli_close($koneksi);
-        function generateCategoryContainer($data, $kategori) {
+        function generateCategoryContainer($data, $kategori)
+        {
             echo '<div id="' . $kategori . '" class="category-container" data-aos="fade-up">';
-            echo '<h2 class="menuTitle text-center mt-5 mb-5">' . ucfirst($kategori) . '</h2>'; 
+            echo '<h2 class="menuTitle text-center mt-5 mb-5">' . ucfirst($kategori) . '</h2>';
             echo '<div class="row row-cols-1 row-cols-md-4 g-4 justify-content-md-center">';
-            foreach ($data[$kategori] as $row){
+            foreach ($data[$kategori] as $row) {
                 $colorClass = getRandomColorClass();
                 echo '<div class="col">';
                 echo '<a href="detail.php?id=' . $row['idmenu'] . '">';
@@ -97,13 +101,13 @@
                 echo '<div class="card-image-container">';
                 echo '<img src="' . $row['foto'] . '" class="card-img-top" alt="">';
                 echo '</div>';
-                echo '<div class="card-body">';echo '</a>';
+                echo '<div class="card-body">';
+                echo '</a>';
                 echo '<p class="card-text">' . $row['namamenu'] . '</p>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
-                
-            }            
+            }
             echo '</div>';
             echo '</div>';
         }
@@ -123,4 +127,5 @@
         AOS.refresh();
     </script>
 </body>
+
 </html>

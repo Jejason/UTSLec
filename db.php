@@ -1,8 +1,6 @@
 <?php
-    define('DSN', 'mysql:host=localhost;port=3306;dbname=restoran');
-    define('DBUSER', 'root');
-    define('DBPASS', '');
+define('DSN', 'mysql:host=sql109.infinityfree.com;dbname=if0_35295262_restoran');
+define('DBUSER', 'if0_35295262');
+define('DBPASS', '2J5oguklsoq4TTj');
 
-    $db = new PDO(DSN, DBUSER, DBPASS);
-
-?>
+$db = new PDO(DSN, DBUSER, DBPASS);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg sticky-top  bg-dark bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -37,8 +39,8 @@
                 <div class="cont_info_log_sign_up">
                     <div class="col_md_login">
                         <div class="cont_ba_opcitiy">
-                            <h2>LOGIN</h2>  
-                            <p>If you hungry.</p> 
+                            <h2>LOGIN</h2>
+                            <p>If you hungry.</p>
                             <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
                         </div>
                     </div>
@@ -55,44 +57,44 @@
                         <img src="img/gambarLogin.avif" alt="" />
                     </div>
                 </div>
-                <div class="cont_forms" >
+                <div class="cont_forms">
                     <div class="cont_img_back_">
                         <img src="img/gambarLogin.avif" alt="" />
                     </div>
                     <?php
-                        $code = substr(uniqid(), 5);
-                        $koneksi = mysqli_connect("localhost", "root", "", "restoran", 3306);
+                    $code = substr(uniqid(), 5);
+                    $koneksi = mysqli_connect("sql109.infinityfree.com", "if0_35295262", "2J5oguklsoq4TTj", "if0_35295262_restoran");
 
-                        $query = "SELECT * FROM user";
-                        $result = mysqli_query($koneksi, $query);
-                        $data = mysqli_fetch_assoc($result);
+                    $query = "SELECT * FROM user";
+                    $result = mysqli_query($koneksi, $query);
+                    $data = mysqli_fetch_assoc($result);
 
-                        mysqli_close($koneksi);
+                    mysqli_close($koneksi);
                     ?>
                     <div class="cont_form_login">
-                        <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
+                        <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
                         <form action="login_process.php" method="post">
                             <h2 class="login">LOGIN</h2>
                             <input type="hidden" name="kategroi" value="<?php echo $data['kategori']; ?>">
-                            <input class="loginInput" type="text" name="username" placeholder="Username" value="<?php echo (isset($_POST['username'])) ? $_POST['username'] : ''; ?>" required/>
-                            <?php 
-                                if(isset($_GET["error"]) && $_GET["error"] === "UsernameisIncorrect"){
-                                    echo '<div class="error username-error">Username Incorrect</div>';
-                                }
+                            <input class="loginInput" type="text" name="username" placeholder="Username" value="<?php echo (isset($_POST['username'])) ? $_POST['username'] : ''; ?>" required />
+                            <?php
+                            if (isset($_GET["error"]) && $_GET["error"] === "UsernameisIncorrect") {
+                                echo '<div class="error username-error">Username Incorrect</div>';
+                            }
                             ?>
-                            <input class="loginInput" type="password" name="password" placeholder="Password" required/>
-                            <?php 
-                                if(isset($_GET["error"]) && $_GET["error"] === "PasswordisIncorrect"){
-                                    echo '<p class="error username-error">Password Incorrect</p>';
-                                }
+                            <input class="loginInput" type="password" name="password" placeholder="Password" required />
+                            <?php
+                            if (isset($_GET["error"]) && $_GET["error"] === "PasswordisIncorrect") {
+                                echo '<p class="error username-error">Password Incorrect</p>';
+                            }
                             ?>
-                            <input class="captcha" type="text" name="captcha" id="captcha" placeholder="Captcha" required/>
-                            <input class="captcha-code" type="text" name="captcha-code1" id="captcha" disabled value="<?php echo $code;?>"/>
-                            <input class="captcha-code" type="hidden" name="captcha-code" id="captcha" value="<?php echo $code;?>"/>
-                            <?php 
-                                if(isset($_GET["error"]) && $_GET["error"] === "CaptchaIncorrect"){
-                                    echo '<p class="error username-error">Captcha Incorrect</p>';
-                                }
+                            <input class="captcha" type="text" name="captcha" id="captcha" placeholder="Captcha" required />
+                            <input class="captcha-code" type="text" name="captcha-code1" id="captcha" disabled value="<?php echo $code; ?>" />
+                            <input class="captcha-code" type="hidden" name="captcha-code" id="captcha" value="<?php echo $code; ?>" />
+                            <?php
+                            if (isset($_GET["error"]) && $_GET["error"] === "CaptchaIncorrect") {
+                                echo '<p class="error username-error">Captcha Incorrect</p>';
+                            }
                             ?>
                             <button type="submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
                         </form>
@@ -101,9 +103,9 @@
                         <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
                         <form action="signup_process.php" method="post">
                             <h2 class="signup">SIGN UP</h2>
-                            <input class="signupInput" type="text" placeholder="Nama Depan" name="namadepan" required/>
-                            <input class="signupInput" type="text" placeholder="Nama Belakang" name="namabelakang" required/>
-                            <input class="signupInput mb-3" type="text" placeholder="Username" name="username" required/>
+                            <input class="signupInput" type="text" placeholder="Nama Depan" name="namadepan" required />
+                            <input class="signupInput" type="text" placeholder="Nama Belakang" name="namabelakang" required />
+                            <input class="signupInput mb-3" type="text" placeholder="Username" name="username" required />
                             <div class="mb-1">
                                 <label class="form-label h6">Gender</label>
                                 <input type="radio" class="form-check-input " name="gender" value="Male" required> Male
@@ -113,7 +115,7 @@
                                 <label for="tanggal">Tanggal Lahir</label>
                                 <input type="date" id="tanggal" name="tanggallahir" required>
                             </div>
-                            <input class="signupInput" type="password" placeholder="Password" name="password" required/>
+                            <input class="signupInput" type="password" placeholder="Password" name="password" required />
                             <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
                         </form>
                     </div>
@@ -125,4 +127,5 @@
     <script src="js/login.js"></script>
 
 </body>
+
 </html>

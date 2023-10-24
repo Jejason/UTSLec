@@ -41,4 +41,3 @@ if ($row) {
 } else {
     header('Location: login.php?error=UsernameisIncorrect');
 }
-?>
