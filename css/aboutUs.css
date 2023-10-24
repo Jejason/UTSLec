@@ -1,0 +1,280 @@
+.leblanc{
+    width: 120px;
+}
+body{
+  width: 100%;
+  height: 100%;
+  background-color: #313131;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px
+}
+.container
+{
+  margin-top: 50px; 
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container .card
+{
+    width: 400px;
+    height: 460px;
+    padding: 60px 30px;
+    margin: 20px;
+    background: #f2f3f7;
+    box-shadow: 0.6em 0.6em 1.2em #d2dce9,
+                -0.5em -0.5em 1em #ffffff;
+    border-radius: 20px;
+}
+.container .card .content
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container .card .content .imgBx
+{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.container .card .content .imgBx img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container .card .content .contentBx h4
+{
+    color: #36187d;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.container .card .content .contentBx h5
+{
+    color: #6c758f ;
+    font-weight: bold;
+    text-align: center;
+}
+.container .card .content .sci
+{
+    margin-top: 20px;
+}
+.container .card .content .sci a
+{
+    text-decoration: none;
+    color: #6c758f;
+    margin: 10px;
+    transition: color 0.4s;
+    }
+.container .card .content .sci .fa-instagram:hover
+{
+    color: #e7369d;  
+    transform: scale(1.5); 
+    transition: transform 0.5s ease-in-out;   
+}
+
+.container .card:hover{
+    background-color: white;
+	border-color: white;
+	box-shadow: -2px -2px 37px 3px beige;
+	-webkit-box-shadow: -2px -2px 37px 3px beige;
+	-moz-box-shadow: -2px -2px 37px 3px beige;
+}
+
+#font{
+    color: white;
+}
+
+
+#btn-message {
+    --text-color: rgb(255, 255, 255);
+    --bg-color-sup: #5e5e5e;
+    --bg-color: #2b2b2b;
+    --bg-hover-color: #161616;
+    --online-status: #00da00;
+    --font-size: 16px;
+    --small-font-size: 14px;
+    --btn-transition: all 0.2s ease-out;
+  }
+  
+  .button-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 400 var(--font-size) Helvetica Neue, sans-serif;
+    box-shadow: 0 0 2.17382px rgba(0,0,0,.049),0 1.75px 6.01034px rgba(0,0,0,.07),0 3.63px 14.4706px rgba(0,0,0,.091),0 22px 48px rgba(0,0,0,.14);
+    background-color: var(--bg-color);
+    border-radius: 68px;
+    cursor: pointer;
+    padding: 6px 10px 6px 6px;
+    width: fit-content;
+    height: 40px;
+    border: 0;
+    overflow: hidden;
+    position: relative;
+    transition: var(--btn-transition);
+  }
+  
+  .button-message:hover {
+    height: 56px;
+    padding: 8px 20px 8px 8px;
+    background-color: var(--bg-hover-color);
+    transition: var(--btn-transition);
+    font-size: var(--small-font-size); /* Change font size on hover */
+  }
+  
+  .button-message:active {
+    transform: scale(0.99);
+  }
+  
+  .content-avatar {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    transition: var(--btn-transition);
+    position: relative;
+  }
+  
+  .button-message:hover .content-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--bg-color-sup);
+  }
+  
+  .user-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .status-user {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    right: 1px;
+    bottom: 1px;
+    border-radius: 50%;
+    outline: solid 2px var(--bg-color);
+    background-color: var(--online-status);
+    transition: var(--btn-transition);
+    animation: active-status 2s ease-in-out infinite;
+  }
+  
+  .button-message:hover .status-user {
+    width: 10px;
+    height: 10px;
+    right: 1px;
+    bottom: 1px;
+    outline: solid 3px var(--bg-hover-color);
+  }
+  
+  .notice-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 8px;
+    text-align: initial;
+    color: var(--text-color);
+  }
+  
+  .username {
+    letter-spacing: -6px;
+    height: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: var(--btn-transition);
+  }
+  
+  .user-id {
+    font-size: 8px;
+    letter-spacing: -6px;
+    height: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--btn-transition);
+  }
+  
+  .lable-message {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    transform: scaleY(1);
+    transition: var(--btn-transition);
+  }
+  
+  .button-message:hover .username {
+    height: auto;
+    letter-spacing: normal;
+    opacity: 1;
+    transform: translateY(0);
+    transition: var(--btn-transition);
+  }
+  
+  .button-message:hover .user-id {
+    height: auto;
+    letter-spacing: normal;
+    opacity: 1;
+    transform: translateY(0);
+    transition: var(--btn-transition);
+  }
+  
+  .button-message:hover .lable-message {
+    height: 0;
+    transform: scaleY(0);
+    transition: var(--btn-transition);
+  }
+  
+  .lable-message, .username {
+    font-weight: 600;
+  }
+  
+  .number-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 8px;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--bg-color-sup);
+    border-radius: 20px;
+  }
+  
+  /*==============================================*/
+  @keyframes active-status {
+    0% {
+      background-color: var(--online-status);
+    }
+  
+    33.33% {
+      background-color: #93e200;
+    }
+  
+    66.33% {
+      background-color: #93e200;
+    }
+  
+    100% {
+      background-color: var(--online-status);
+    }
+  }
